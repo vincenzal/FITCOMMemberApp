@@ -8,6 +8,9 @@
   
   <preference name="fullscreen" value="true" />
   <preference name="orientation" value="portrait" />
+  
+  <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
+  
   <!--
   <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.1.1"/>
   <plugin name="cordova-plugin-camera" source="npm" spec="~2.1.1"/>
@@ -28,7 +31,7 @@
   <plugin name="cordova-plugin-splashscreen" source="npm" spec="~3.2.1"/>
   <plugin name="cordova-plugin-statusbar" source="npm" spec="~2.1.2"/>
   <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0"/>
-  <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
+  
   -->
   <icon src="logo.png"/>
   <platform name="android">
