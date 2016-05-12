@@ -20,7 +20,24 @@
     <icon src="res/icons/fitcom_144.png" density="xxhdpi"/>
     <icon src="res/icons/fitcom_192.png" density="xxxhdpi"/>
   </platform>
-
+  <platform name="ios">
+    <icon src="res/icons/fitcom_57.png" platform="ios" width="57" height="57"/>
+    <icon src="res/icons/fitcom_114.png" platform="ios" width="114" height="114"/>
+    <icon src="res/icons/fitcom_40.png" platform="ios" width="40" height="40"/>
+    <icon src="res/icons/fitcom_80.png" platform="ios" width="80" height="80"/>
+    <icon src="res/icons/fitcom_50.png" platform="ios" width="50" height="50"/>
+    <icon src="res/icons/fitcom_100.png" platform="ios" width="100" height="100"/>
+    <icon src="res/icons/fitcom_60.png" platform="ios" width="60" height="60"/>
+    <icon src="res/icons/fitcom_120.png" platform="ios" width="120" height="120"/>
+    <icon src="res/icons/fitcom_180.png" platform="ios" width="180" height="180"/>
+    <icon src="res/icons/fitcom_72.png" platform="ios" width="72" height="72"/>
+    <icon src="res/icons/fitcom_144.png" platform="ios" width="144" height="144"/>
+    <icon src="res/icons/fitcom_76.png" platform="ios" width="76" height="76"/>
+    <icon src="res/icons/fitcom_152.png" platform="ios" width="152" height="152"/>
+    <icon src="res/icons/fitcom_29.png" platform="ios" width="29" height="29"/>
+    <icon src="res/icons/fitcom_58.png" platform="ios" width="58" height="58"/>
+    <icon src="res/icons/fitcom_87.png" platform="ios" width="87" height="87"/>
+  </platform>
   
   <access origin="http://*" />
   <access origin="https://*" />
