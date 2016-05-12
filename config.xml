@@ -1,4 +1,4 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="at.fit-com.memberapp" version="1.0.1">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="at.fit-com.memberapp" version="1.1.0">
   <name>FITCOM Member APP</name>
   <description>Trainingsplaner für FITCOM Mitglieder</description>
   <author href="http://vincenz.at" email="office@vincenz.at">vincenz APP Team</author>

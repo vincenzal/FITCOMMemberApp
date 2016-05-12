@@ -2,12 +2,56 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Test</title>
-<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1,
-width=device-width, height=device-height, target-densitydpi=device-dpi" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+<title>FITCOM Mitgliederseite</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="res/fitcom_mobile.css" />
+<script src="res/jquery-1.12.1.min.js"></script>
+<script src="res/make-nice-checkbox.js"></script>
+<script src="res/script.min.js"></script>
 </head>
 
-<body>
-FITCOM
+<body id="site-index">
+<header>
+<div id="header">
+<div id="logo-start"><img src="images/fitcom_logo.png" alt="FITCOM Logo"></div>
+</div>
+</header>
+
+<div class="sitecontent_mobile">
+<h1>Login</h1>
+<p class="errormsg errorred" id="error1">Logindaten nicht korrekt.</p><p>&nbsp;</p>
+<p class="errormsg errorred" id="error2">Sie wurden ausgeloggt.</p><p>&nbsp;</p>
+<p class="sitetext">Kostenlos für Mitglieder.<br>Noch keine Logindaten?<br>Melden Sie sich an der Rezeption.</p>
+<div id="login-area">
+<form name="logForm" id="logForm" action="#" method="post">
+<input id="username" class="eingabelogin" type="email" maxlength="20" name="email" readonly placeholder="E-Mail" autocomplete="off">
+<input id="password" class="eingabelogin" type="password" maxlength="20" name="password" readonly placeholder="Passwort">
+<input type="checkbox" name="eingeloggtbleiben" id="eingeloggtbleiben" value="1"><label for="eingeloggtbleiben" class="normal">Eingeloggt bleiben</label>
+<a class="weiter-button" id="loginbutton" href="#"><img border="0" src="images/weiter.png" alt="Login"></a>
+                
+</form>
+
+</div>
+</div>
+<hr>
+<div id="disclaimer">
+    <p>Squash & Fitnesscenter Simmering<br>
+    FITCOM - all inclusive fitness um €21,90</p>
+    <p>Simmeringer Hauptstraße 211<br>
+    1110 Wien, Österreich<br>
+    Tel.: + 43 (0)1 768 37 57<br>
+    E-Mail: office@fit-com.at<br>
+    Web: <a href="http://www.fit-com.at" target="_blank">www.fit-com.at</a></p>
+    <p>
+    Geschäftsführer<br>
+    Josef Nußbaumer</p>
+    <p>
+    Mitglied der Wirtschaftskammer Wien<br>
+    UID-Nr.: ATU 111 97 300 </p>
+</div>
 </body>
 </html>

@@ -1,0 +1,210 @@
+/* 
+	türkis: #00ae8d
+	hellgruen: #9fcb36
+*/
+
+html, body { height:100%; }
+* { margin:0px; padding:0px; 
+-webkit-tap-highlight-color: rgba(0,0,0,0); 
+-webkit-tap-highlight-color: transparent; }
+
+body { background:#000; font-size:100%; font-family:Verdana; color:#FFF;  }
+fieldset { border:none; }
+
+h1 { color: #00c3ae;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 36px;
+    padding: 25px 0;
+    text-transform: uppercase;
+}
+h2 { font-size:1em; border-bottom:1px solid #000; color: #661b0a;  }
+h3 { }
+
+p { line-height:1.5em; }
+a { text-decoration:none; -webkit-tap-highlight-color: rgba(0,0,0,0); }
+
+img { border:0 none; }
+
+table { border-collapse: collapse;}
+
+.clearer { clear:both; height:20px; }
+.printonly { display:none; }
+.newsheader { clear:both; margin-bottom:5px; }
+
+
+#header { background:#FFF; padding:10px; color:#000; position:relative; height:40px; }
+#datetime { position:absolute; top:4px; right:25px; font-size:0.8em; text-align:right; }
+
+#sitecontent { width:900px; margin:20px auto; }
+.sitecontent_mobile { max-width:310px; margin:0 auto; text-align:center; }
+#login-area { padding:1em 0.5em; }
+#login-area table tr { border:15px solid #000; }
+#login-area table tr td input { padding: 6px 15px; }
+
+#logo img { max-width: 60%; margin-top:6px; }
+#logo-start { margin:0 auto; max-width:310px; text-align:center; }
+#logo-start img { max-width: 100%; margin-top:2px; } 
+section.table_mobile { margin:0 auto; }
+.gefloatet {float: right; margin-right:80px; margin-top: -25px; }
+
+#nav-show.button-visible { display:block; position:absolute; top:9px; right:9px; background: url(../images/menu-button.png) no-repeat; height:40px; width:46px; border:none; box-shadow: none;}
+#nav-hide { position:absolute; top:9px; right:9px; background: url(../images/_close-button.png) no-repeat; height:40px; width:46px; border:none; box-shadow: none; display: none;}
+#nav-hide.button-visible { display:block; }
+#nav-show { display:none; }
+.site-nav { position:relative; }
+.site-nav ul { position:relative; list-style:none; display:none; width:312px; height:280px; margin-top:-30px auto 20px auto; }
+.site-nav ul.menu-visible{ display:block; z-index:200; }
+
+.site-nav a { height:60px; vertical-align:center; padding:20px 5px 40px 5px; display:block; background:#00b99e; color:#fff; text-decoration:none; border-radius:0; font-size:1em; text-transform:uppercase; }
+.site-nav a.logout-red { background:#c40230; }
+.site-nav li { text-align:center; padding:2px 2px; width:152px; float:left; }
+.site-nav li:first-child { padding-top:30px; }
+.site-nav li:nth-child(2) { padding-top:30px; }
+.site-nav a img { display:block; margin: 0 auto; padding-bottom: 8px;  }
+a.weiter-button { margin:30px 0 20px 15px; display:block; }
+
+section.mobile_content { width:310px; margin:20px auto 0 auto; padding-left:8px; }
+
+.button-area-userbereich { text-align:center; }
+.button-area-userbereich button { border: medium none; box-shadow: none; color: #ffffff; cursor: pointer; font-size: 1em; font-weight: bold; margin-bottom: 5px;
+    margin-top: 5px; padding: 15px; text-transform: uppercase; width:300px; }
+	
+button.stoptrain_delete	 { background:transparent; border:none; outline:none; color:#fff; }
+	
+button.training-speichern, button.passwort-speichern { background:#00b99e; }
+button.fitcom-verlassen { background:#c40230; }
+#welcome-text { font-size:20px; }
+#training-auswahl { padding:20px 10px; }
+input { margin:14px; }
+label.highlight { font-size:1.2em; font-weight:bold; color:#a0bf46; }
+label.highlight.normal { font-weight:normal; color:#fff; font-size:1em; }
+label, div.inputwrapper canvas { cursor:pointer;  }
+	div.inputwrapper canvas { width:45px; height:45px; vertical-align:middle; margin:5px 5px 8px 0; transform: scale(0.75); }
+	div.inputwrapper { margin-left:15px; }
+
+
+#training-auswahl h2 { color: #9fcb36; margin: 0; text-align: left; font-size:1.2em; }
+.training-auswahl-text { margin-left:45px; margin-top:-10px; }
+
+
+table.table-trainingsplan { background:#000000; width:290px; color:#999999; padding:10px; border:solid 3px #ffffff; text-align:center; margin:0 auto 10px auto; }
+table.table-trainingsplan tr.training-week { background:#deedb4; font-weight:bold; color:#000000; }
+table.table-trainingsplan tr.training-week td { border:1px solid #666; }
+table.table-trainingsplan .table-month { font-size:1.2em; font-weight:bold; text-transform:uppercase; }
+table.table-trainingsplan tr { height:36px; }
+table.table-trainingsplan tr td { width:28px; }
+table.table-trainingsplan td.training-day-active { border:1px solid #666; }
+table.table-trainingsplan tbody > tr:first-child { background-color:#ffffff; color:#000000; }
+
+
+table.table-trainingsplan td.training-ok { background-color:#a0bf46; }
+table.table-trainingsplan td.training-ok a { color:#ffffff; font-weight:bold; }
+td.training-ok a:active {color:#000000; }
+
+.select-bar { width:290px; } 
+#selectYear { opacity: 0.000001; position:absolute; top:20px; left:0px; width:310px; }
+#select-year-text { margin-bottom:10px; padding:10px 20px; background-color:#00c3ae; color:#ffffff; position:relative; width:250px; margin-left:10px; }
+#select-year-text span { display:block; }
+
+#loginusers { margin:20px; }
+#loginusers td { padding:5px 5px; color:#9fcb36; text-align:center; opacity:0.6; filter:Alpha(Opacity=60); cursor:pointer; }
+#loginusers td:hover, #loginusers td.aktiv { opacity:1; filter:Alpha(Opacity=100); }
+
+#loginusers td strong, .taste{ font-weight:bold; color:#ffcc00; font-size:10px; }
+
+.eingabelogin { background:#000; color:#FFF; border:1px solid #FFF; margin:10px 15px; font-size:20px; width:250px; padding:10px; }
+.save-password { background:#00c3ae; }
+.eingabepos { background:#000; color:#FFF;   width:60px; text-align:center; border:1px solid #666; font-size:14px; margin:0px 15px; }
+.errorM { font-size:11px; font-weight:bold; color:#ff0028; margin:10px 0px; }
+.hinweisM { font-size:11px; font-weight:bold; color:#ff0028; margin:10px 0px; }
+.systemMessage{ font-size:11px; font-weight:bold; color:#ff0028; margin:10px 0px; }
+
+a:focus { outline: none;}
+
+#mainnav ul { list-style-type:none; height:65px; }
+#mainnav li { float:left; margin-right:10px; }
+#mainnav a { color:#FFF; font-weight:bold; display:block; text-align:center; font-size:0.8em; border:1px solid #333; padding:5px 10px 7px 10px; }
+#mainnav a:hover { color:#00ae8d; }
+
+.formtable .blankline td { height:20px; }
+.formtable td { height:35px; }
+
+#adminnav { position:absolute; right:0px; top:60px; background:#FFF; width:150px; }
+#admintitle { color:#000; font-weight:bold; font-size:14px; margin-bottom:5px; display:none; }
+#mainnav #adminnav  ul { list-style-type:none; height:auto; }
+#mainnav #adminnav  li { float:none; margin-right:0px; }
+#mainnav #adminnav  a { color:#000; font-weight:bold; display:block; text-align:center; font-size:0.7em; border:1px solid #333; padding:2px; }
+#mainnav #adminnav  a:hover { color:#ffcc00; }
+
+.pflicht { font-size:0.7em; color:#00ae8d; }
+
+.contentgreenborder {  border-top:1px solid #9fcb36; padding: 10px; }
+
+.statistiktable { border-top:1px solid #202020;  border-left:1px solid #202020; border-right:1px solid #202020; }
+.statistiktable th { width:60px; height:25px; text-align:center; }
+.statistiktable td { text-align:center;  color:#FFF; font-size:0.9em; }
+.statistiktable .bottomline { border-bottom:1px solid #202020;  }
+.statistiktable .summe { font-size:0.9em;  }
+.statistiktable .coldark { background-color:#333;  }
+.statistiktable td a { font-weight:bold; color:#ffcc00; }
+.listname { padding-left:10px; }
+
+.bigred { font-size:20px; font-weight:bold; color:#ff0028; margin:10px 0px; }
+
+.statusok { width:400px; text-align:center;  }
+.statusnichtok { width:400px; text-align:center;  }
+.biggreen { color:#9fcb36; font-size:32px; font-weight:bold;  }
+.bigerrorred { font-size:32px; font-weight:bold; color:#ff0028;}
+
+.eanprint, .eanersatz { background:#FFF; color:#000; font-size:10px; }
+.eanersatz { font-size:14px; }
+.eanprint td , .eanersatz td{ text-align:center; }
+.adresse { margin:10px; text-align:left;  }
+.cardhinweis { font-weight:bold; font-size:14px; /*margin:20px 10px 10px;*/ }
+.eanersatz .feldtitle { width:200px; text-align:left; font-weight:bold; font-size:24px; height:80px; padding:20px 0px 20px 20px;}
+.eanersatz .schreibfeld { border-bottom:1px dotted #000000; margin:0px 30px 0px 5px; }
+.eanprint .schreibfeld { border-bottom:1px dotted #000000; margin:40px 30px 0px 30px; }
+.ean10 { border-bottom:0px none; }
+.ean10 td { height:69px; width:33px;}
+
+.edit_table td, .edit_table th { padding:5px 0px; vertical-align:middle;}
+.edit_table th { text-align:right; width:215px; }
+.edit_table .aktivRow th { color:#ffcc00; }
+.eingabekunde { background:#000; color:#FFF; border:1px solid #FFF; margin:0px 15px; font-size:20px; width:450px; }
+textarea.eingabekunde { height:150px; }
+.eingabekundeshort { background:#000; color:#FFF; border:1px solid #FFF; margin:0px 15px; font-size:20px; width:250px; }
+
+#jsform { margin-bottom:25px; }
+
+#editform { padding-bottom:25px; }
+
+#hinweistext {display:none; }
+
+#besuche { display:none; }
+
+#hinweistext { margin:20px; border:2px solid #00ae8d; padding:20px; width:400px; min-height:100px; overflow:auto; background:#FFF; color:#000; }
+
+#standtabelle td { color:#FFF; font-weight:bold; }
+#standtabelle .aktivRow td { background: #ffcc00; color:#000; }
+.buttontab td {padding:5px 20px;}
+
+/*zugriff_online*/
+#checkbox_online { width:30px; height:30px; border:1px solid #ffffff; margin:0 15px; }
+#checkbox_online.zugriff_aktiv { background:url(../../images/content/zugriff_yes.png) no-repeat center center; }
+#display_time { float: right; margin-top: -25px; margin-left: 60px; }
+#text_online { position: absolute; right:3px; bottom:3px; background:#185d45; color:#ffffff; padding:0 4px 0 6px;}
+
+form ul { list-style:none; padding:0; margin:0; }
+form li { width:45%; float:left; text-align:center; height:90px; margin-right:5%; }
+form ul div.inputwrapper { margin:0;}
+form ul div.inputwrapper canvas { margin:0; }
+form ul label { display:inline-block; width:90%; }
+
+#disclaimer { max-width:300px; margin:30px auto; font-size:0.8em;; opacity:0.7; }
+#disclaimer a { color: #00ae8d; }
+
+.errormsg { display:none; }
+.errorred { color:#F00; }
+#overlay { position:absolute; top:0; left:0; width:100%; height:100%; text-align:center; background:rgba(0,0,0,0.8); display:none; }
+#overlay img { position:relative; top:150px; }

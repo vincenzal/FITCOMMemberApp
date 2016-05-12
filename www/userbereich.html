@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>FITCOM -Userbereich</title>
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="res/fitcom_mobile.css" />
+<script src="res/jquery-1.12.1.min.js"></script>
+<script src="res/make-nice-checkbox.js"></script>
+<script src="res/script.min.js"></script>
+</head>
+
+<body id="site-userbereich">
+<header>
+<div id="header">
+<div id="logo"><img src="images/fitcom_logo.png" alt="FITCOM"></div>
+</div>
+<button id="nav-show" class="button-visible"></button>
+<button id="nav-hide"></button>
+<div class="sitecontent_mobile">
+<nav class="site-nav">
+    <ul>
+    	<li><a href="userbereich.html"><img src="images/aktuelles-training1-icon.png" alt="">Aktuelles Training</a></li>
+		<li><a href="trainingsplan.html"><img src="images/training-aktuell-icon.png" alt="">Trainingsplan</a></li>
+        <li><a href="select-pw.html"><img src="images/passwort-icon.png" alt="">Passwort ändern</a></li>
+        <li><a class="logout-red" href="index.html?logout"><img src="images/logout-icon.png" alt="">Logout</a></li>
+    </ul>
+</nav>
+</div>
+</header>
+
+<section class="mobile_content ">
+
+	<h1></h1>
+	<p class="errormsg errorred" id="error1">An diesem Tag haben Sie kein Training absolviert.</p>
+	<div class="errormsg" id="error2"><p class="errorred">Sie sind nicht im FITCOM angemeldet.</p><br><p>Die Anmeldung erfolgt automatisch, sobald Sie ihre Mitgliedskarte an der Rezeption abgegeben haben.</p></div>
+
+
+	<div class="errormsg " id="data_header"> 
+
+ 		<div class="welcome-text">Trainingsbeginn: <b id="train_start"></b></div>
+        <div class="errormsg button-area-userbereich" id="training_notended">
+		    <button id="btn_ende" class="button-fitcom fitcom-verlassen">Training beenden</button>
+        </div>
+        <div class="errormsg" id="training_ended">
+            <div class="welcome-text">Trainingsende: <b id="train_ende"></b> (<button class="button-fitcom stoptrain_delete">X</button>)</div>
+            <div class="welcome-text">Dauer: <b id="train_duration"></b></div>  
+        </div>
+    </div>
+    
+
+	<div class="errormsg" id="traindata">
+    <p><br>Details zum Training:</p>
+    
+
+    <form method="post">
+    <div id="training-auswahl">
+    <h2>Kraftsport</h2>
+    <div class="contentgreenborder">
+    <ul><li><input type="checkbox" name="brust" id="cb_brust" value="1"> <label for="cb_brust">Brust</label></li>
+    <li><input type="checkbox" name="schulter" id="cb_schulter" value="1"> <label for="cb_schulter">Schulter</label></li>
+    <li><input type="checkbox" name="ruecken" id="cb_ruecken" value="1"> <label for="cb_ruecken">Rücken</label></li>
+    <li><input type="checkbox" name="bizeps" id="cb_bizeps" value="1"> <label for="cb_bizeps">Bizeps</label></li>
+    <li><input type="checkbox" name="trizeps" id="cb_trizeps" value="1"> <label for="cb_trizeps">Trizeps</label></li>
+   <li> <input type="checkbox" name="bauch" id="cb_bauch" value="1"> <label for="cb_bauch">Bauch</label></li>
+    <li><input type="checkbox" name="oberschenkel" id="cb_oberschenkel" value="1"> <label for="cb_oberschenkel">Oberschenkel</label></li>
+    <li><input type="checkbox" name="wade" id="cb_wade" value="1"> <label for="cb_wade">Wade</label></li>
+    </ul>
+   
+    </div>
+    <h2>Fitness</h2>
+    <div class="contentgreenborder">
+    
+    <ul><li>
+    <input type="checkbox" name="ausdauer" id="cb_ausdauer" value="1"> <label for="cb_ausdauer">Ausdauer</label></li>
+   <li><input type="checkbox" name="kampfsport" id="cb_kampfsport" value="1"> <label for="cb_kampfsport">Kampfsport</label></li>
+    <li><input type="checkbox" name="gymnastik" id="cb_gymnastik" value="1"> <label for="cb_gymnastik">Gymnastik</label></li>
+    <li><input type="checkbox" name="squash" id="cb_squash" value="1"> <label for="cb_squash">Squash</label></li></ul>
+     </div>
+     </div>
+      <div class="button-area-userbereich">
+   
+   		 <button class="button-fitcom training-speichern">speichern</button>
+    </div>
+    </form>
+   
+	</div>
+
+</section>
+</body>
+</html>

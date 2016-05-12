@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+<title>FITCOM - Passwort ändern</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="res/fitcom_mobile.css" />
+<script src="res/jquery-1.12.1.min.js"></script>
+<script src="res/make-nice-checkbox.js"></script>
+<script src="res/script.min.js"></script>
+</head>
+
+<body id="site-pwdchange">
+<header>
+<div id="header">
+<div id="logo"><img src="images/fitcom_logo.png" alt="FITCOM"></div>
+</div>
+<button id="nav-show" class="button-visible"></button>
+<button id="nav-hide"></button>
+<div class="sitecontent_mobile">
+<nav class="site-nav">
+    <ul>
+    	<li><a href="userbereich.html"><img src="images/aktuelles-training1-icon.png" alt="">Aktuelles Training</a></li>
+		<li><a href="trainingsplan.html"><img src="images/training-aktuell-icon.png" alt="">Trainingsplan</a></li>
+        <li><a href="select-pw.html"><img src="images/passwort-icon.png" alt="">Passwort ändern</a></li>
+        <li><a class="logout-red" href="index.html?logout"><img src="images/logout-icon.png" alt="">Logout</a></li>
+    </ul>
+</nav>
+</div>
+</header>
+
+<div class="sitecontent_mobile">
+    <h1>Passwort ändern</h1>
+    
+    <p class="sitetext errormsg" id="msg1">Passwort wurde geändert.</p>  
+    <p class="sitetext errormsg errorred" id="msg2">Eingaben nicht korrekt. Passwort konnte nicht geändert werden. Achtung ein neues Passwort muss mind. 6 Zeichen lang sein.</p> 
+
+
+    <div id="pw-area">
+        <form name="pwForm" id="pwForm" action="#" method="post">
+            <input id="pw-old" class="eingabelogin" type="password" maxlength="20" name="pw-old" placeholder="Aktuelles Passwort">
+            <input id="pw-new" class="eingabelogin" type="password" maxlength="20" name="pw-new" placeholder="Neues Passwort">
+            <input id="pw-new-2" class="eingabelogin" type="password" maxlength="20" name="pw-new-2" placeholder="Passwort wiederholen">
+            <div class="button-area-userbereich">
+            <button class="button-fitcom passwort-speichern">Passwort speichern</button>
+            </div>
+        </form>
+    
+    </div>
+</div>
+</body>
+</html>

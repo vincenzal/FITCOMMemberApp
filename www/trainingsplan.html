@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>FITCOM - Trainingsplan</title>
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="res/fitcom_mobile.css" />
+<script src="res/jquery-1.12.1.min.js"></script>
+<script src="res/make-nice-checkbox.js"></script>
+<script src="res/script.min.js"></script>
+</head>
+
+
+<body id="site-trainingsplan">
+<header>
+<div id="header">
+<div id="logo"><img src="images/fitcom_logo.png" alt="FITCOM"></div>
+</div>
+<button id="nav-show" class="button-visible"></button>
+<button id="nav-hide"></button>
+<div class="sitecontent_mobile">
+<nav class="site-nav">
+    <ul>
+    	<li><a href="userbereich.html"><img src="images/aktuelles-training1-icon.png" alt="">Aktuelles Training</a></li>
+		<li><a href="trainingsplan.html"><img src="images/training-aktuell-icon.png" alt="">Trainingsplan</a></li>
+        <li><a href="select-pw.html"><img src="images/passwort-icon.png" alt="">Passwort ändern</a></li>
+        <li><a class="logout-red" href="index.html?logout"><img src="images/logout-icon.png" alt="">Logout</a></li>
+    </ul>
+</nav>
+</div>
+</header>
+
+<div class="sitecontent_mobile">
+	<h1>Trainingsplan:</h1>
+    <div class="select-bar">
+        <form action="#" method="get" id="changeYearForm">
+         <fieldset>
+            <div id="select-year-text"><span></span>
+            <select name="year" id="selectYear" >   
+            </select>
+            </div>
+          </fieldset>
+        </form>
+    </div> 
+	<div id="cal">
+    </div>		
+</div>
+
+</body>
+</html>
