@@ -13,7 +13,7 @@ $.ajaxSetup({
 });
 
 var maxYear = 2016;
-var appVersion = '1.1.3';
+var appVersion = '1.1.4';
 
 /* 
 
@@ -240,6 +240,19 @@ var showUpdateInfo = function( data ) {
 	$( 'body' ).append( $( '<div id="overlayStore"><p>Es gibt eine neue Version der FITCOM-App. Bitte mache ein Update.</p><p><br><br>'+storeLink+'</p></div>' ).show() );
 	
 };
+
+// open external links
+$( document ).on( 'click', 'a[target=_blank]', function(e) {
+	e.preventDefault();
+	window.open( this.href, '_system' );
+});
+
+// open external links
+$( document ).on( 'click', 'a[target=_system]', function(e) {
+	e.preventDefault();
+	window.open( this.href, '_system' );
+});
+
 
 var logit = function(s) {
 	$.ajax({
