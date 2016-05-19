@@ -9,6 +9,7 @@
 <title>FITCOM Mitgliederseite</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="res/fitcom_mobile.css" />
+<script type="text/javascript" src="cordova.js"></script>
 <script src="res/jquery-1.12.1.min.js"></script>
 <script src="res/make-nice-checkbox.js"></script>
 <script src="res/script.min.js"></script>
@@ -25,11 +26,12 @@
 <h1>Login</h1>
 <p class="errormsg errorred" id="error1">Logindaten nicht korrekt.<br><br></p>
 <p class="errormsg errorred" id="error2">Sie wurden ausgeloggt.<br><br></p>
+<p class="errormsg errorred" id="error3">Verbindung zum Server konnte nicht hergestellt werden.<br>Nutzung nur mit aktiver Internetverbindung möglich.<br><br><a href="index.html" class="weiter-button button">Nochmal versuchen</a><br><br></p>
 <p class="sitetext">Kostenlos für Mitglieder.<br>Noch keine Logindaten?<br>Melden Sie sich an der Rezeption.</p>
 <div id="login-area">
 <form name="logForm" id="logForm" action="#" method="post">
-<input id="username" class="eingabelogin" type="email" maxlength="20" name="email" readonly placeholder="E-Mail" autocomplete="off">
-<input id="password" class="eingabelogin" type="password" maxlength="20" name="password" readonly placeholder="Passwort">
+<input id="username" class="eingabelogin" type="email" maxlength="255" name="email" placeholder="E-Mail" autocomplete="off">
+<input id="password" class="eingabelogin" type="password" maxlength="255" name="password" placeholder="Passwort">
 <input type="checkbox" name="eingeloggtbleiben" id="eingeloggtbleiben" value="1"><label for="eingeloggtbleiben" class="normal">Eingeloggt bleiben</label>
 <a class="weiter-button" id="loginbutton" href="#"><img border="0" src="images/weiter.png" alt="Login"></a>
                 
