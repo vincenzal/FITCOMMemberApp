@@ -3,6 +3,14 @@ FITCOM Mitglied APP
 nur für Mitglieder www.fit-com.at
 
 History
+> 1.1.4 (19.05.2016)
+		
+		design
+		Rot der Fehlermeldung angepasst.
+		
+		new features
+		Hinweis zu App-Update anzeigen.
+
 > 1.1.3 (19.05.2016)
 		
 		bugfix

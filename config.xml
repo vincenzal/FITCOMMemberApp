@@ -1,4 +1,4 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="at.fit-com.memberapp" version="1.1.3">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="at.fit-com.memberapp" version="1.1.4">
   <name>FITCOM Member APP</name>
   <description>Trainingsplaner für FITCOM Mitglieder</description>
   <author href="http://vincenz.at" email="office@vincenz.at">vincenz APP Team</author>
@@ -11,9 +11,11 @@
   
   <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
   <plugin name="cordova-plugin-statusbar" source="npm" spec="~2.1.2"/>
+  <plugin name="cordova-plugin-device" source="npm" spec="~1.1.1"/>
 
   <icon src="logo.png"/>
   <platform name="android">
+  
     <icon src="res/icons/fitcom_36.png" density="ldpi"/>
     <icon src="res/icons/fitcom_48.png" density="mdpi"/>
     <icon src="res/icons/fitcom_72.png" density="hdpi"/>
@@ -71,5 +73,13 @@
   
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
+
+  <platform name="android">
+    <allow-intent href="market:*"/>
+  </platform>
+  <platform name="ios">
+    <allow-intent href="itms:*"/>
+    <allow-intent href="itms-apps:*"/>
+  </platform>
 
 </widget>

@@ -13,6 +13,7 @@ $.ajaxSetup({
 });
 
 var maxYear = 2016;
+var appVersion = '1.1.3';
 
 /* 
 
@@ -45,47 +46,51 @@ $( document ).ready(function() {
 		top.location.href="index.html"; 
 	}, 2*60*60000 );
 		
-	//page scripts
-	$( 'body' ).append( $( '<div id="overlay"><span></span></div>' ) );
-	switch( $('body').attr('id') ) {
-	
-		case 'site-index':
-			$('input[type=checkbox]').makeNiceCheckbox();
-			if ( document.location.search === '?logout' ) {
-				logit( 'logout' );
-				logout();
-				$('#error2').show();
-			} else if ( document.location.search === '?error3' ) {	
-				$( 'h1, hr, .sitetext, #disclaimer, #login-area').hide();			
-				$( '#error3' ).show();
-			} else {
-				logit( 'site-index' );
-				userOK( loginSuccess );
-			}		
-		break;	
-		case 'site-userbereich':
-			logit( 'site-userbereich' );
-			userOK( false, function(){ setTimeout( function() { logout(); top.location.href = 'index.html'; },200 ); } );
-			getTraining();				
-		break;
-		case 'site-pwdchange':
-			logit( 'site-pwdchange' );
-			userOK( false, function(){ setTimeout( function() { logout(); top.location.href = 'index.html'; },200 ); } );
-		break;
-		case 'site-trainingsplan':
-			logit( 'site-trainingsplan' );
-			userOK( false, function(){ setTimeout( function() { logout(); top.location.href = 'index.html'; },200 ); } );		
-			createPlaner();			
-		break;
-	}
+
 	
 	document.addEventListener("deviceready", onDeviceReady, false);
 	// device APIs are available
 	function onDeviceReady() {
-		StatusBar.hide();
+		if ( typeof StatusBar !== 'undefined' ) { StatusBar.hide(); }
 		document.addEventListener("resume", function() {
 			setTimeout( function() { top.location.href = 'userbereich.html'; },20 );
 		}, false);
+		
+		//page scripts
+		$( 'body' ).append( $( '<div id="overlay"><span></span></div>' ) );
+		switch( $('body').attr('id') ) {
+		
+			case 'site-index':
+				$('input[type=checkbox]').makeNiceCheckbox();
+				if ( document.location.search === '?logout' ) {
+					logit( 'logout' );
+					logout();
+					$('#error2').show();
+				} else if ( document.location.search === '?error3' ) {	
+					$( 'h1, hr, .sitetext, #disclaimer, #login-area').hide();			
+					$( '#error3' ).show();
+				} else {
+					logit( 'site-index' );
+					userOK( loginSuccess );
+				}		
+			break;	
+			case 'site-userbereich':
+				logit( 'site-userbereich' );
+				userOK( false, function(){ setTimeout( function() { logout(); top.location.href = 'index.html'; },200 ); } );
+				getTraining();				
+			break;
+			case 'site-pwdchange':
+				logit( 'site-pwdchange' );
+				userOK( false, function(){ setTimeout( function() { logout(); top.location.href = 'index.html'; },200 ); } );
+			break;
+			case 'site-trainingsplan':
+				logit( 'site-trainingsplan' );
+				userOK( false, function(){ setTimeout( function() { logout(); top.location.href = 'index.html'; },200 ); } );		
+				createPlaner();			
+			break;
+		}		
+		
+		
 	}
 	
 }); 
@@ -171,7 +176,7 @@ var createCalendar = function( year, days ) {
 
 var errorlogout = function() {
 	top.location.href="index.html?logout";
-}
+};
 
 var logout = function() {
 	sessionStorage.clear();		
@@ -219,13 +224,40 @@ var loginSuccess = function() {
 	setTimeout( function() { top.location.href="userbereich.html"; }, 200 );
 };
 
+var showUpdateInfo = function( data ) {
+	var storeLink = '';
+		
+	switch( device.platform ) {
+		case 'Android': 
+			storeLink = data.androidStoreLink;
+		break;
+		case 'iOS':
+			storeLink = data.iOSStoreLink;
+		break;
+		default:
+		break;			
+	}
+	$( 'body' ).append( $( '<div id="overlayStore"><p>Es gibt eine neue Version der FITCOM-App. Bitte mache ein Update.</p><p><br><br>'+storeLink+'</p></div>' ).show() );
+	
+};
+
 var logit = function(s) {
 	$.ajax({
 		data:{
 			type:'logit',
 			uid: sessionStorage.getItem( 'fitcomLogin_uid' ),
-			content:s
+			content:s,
+			appVersion: appVersion
 		}
+	}).done( function(data) {
+		if ( data!=='' ) { data = JSON.parse(data); }
+		if ( data.update ) { 
+			/*var timer = sessionStorage.getItem( 'fitcomUpdate_time' );
+			if ( !timer ||  timer + 24*60*60*1000 > Date.now()) {*/
+				//sessionStorage.setItem( 'fitcomUpdate_time', Date.now() );	
+				showUpdateInfo(data);						
+			/*}*/ 
+		}		
 	}).fail( function() {
 		showError();
 	});
