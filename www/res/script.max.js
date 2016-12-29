@@ -8,12 +8,12 @@
 
 */
 $.ajaxSetup({
-	url:'http://fitcom.plusdrei.at/mobile/app/',
+	url:'http://fitcom.plusdrei.at/mobile/app.1.2.x/',
 	method:'POST'
 });
 
 var maxYear = 2016;
-var appVersion = '1.1.4';
+var appVersion = '1.2.0';
 
 /* 
 
@@ -118,7 +118,7 @@ var loadYearData = function( year ) {
 			checkTrainging: true
 		}
 	}).done( function( data ) {	
-		if ( data !== '' ) { data = JSON.parse(data); }	
+		if ( data !== '' ) { data = JSON.parse(data); }
 		if ( data.error ) { errorlogout(); return; }		
 		if ( data.days ) {
 			data = data.days;
@@ -331,6 +331,17 @@ var getTraining = function() {
 	}).done( function(data) {	
 		if ( data !== '' ) { data = JSON.parse(data); }
 		if ( data.error ) { errorlogout(); return; }				
+		if ( data.next ) {
+			$( '#btn_next' ).attr('href', 'userbereich.html?d='+data.next );
+		} else {
+			$( '#btn_next' ).addClass( 'disabled' );	
+		}
+
+		if ( data.prev ) {
+			$( '#btn_prev' ).attr('href', 'userbereich.html?d='+data.prev );
+		} else {
+			$( '#btn_prev' ).addClass( 'disabled' );	
+		}
 		if ( data.id ) {
 			trainingID = data.id;
 			$( '#data_header' ).show();
@@ -357,8 +368,32 @@ var getTraining = function() {
 			$('#cb_kampfsport').prop('checked', data.cb_kampfsport === "1" );
 			$('#cb_gymnastik').prop('checked', data.cb_gymnastik === "1" );
 			$('#cb_squash').prop('checked', data.cb_squash === "1" );
+			
+			$('#txt_brust').val( data.txt_brust );
+			$('#txt_schulter').val( data.txt_schulter );
+			$('#txt_ruecken').val( data.txt_ruecken );
+			$('#txt_bizeps').val( data.txt_bizeps );
+			$('#txt_trizeps').val( data.txt_trizeps );
+			$('#txt_bauch').val( data.txt_bauch );
+			$('#txt_oberschenkel').val( data.txt_oberschenkel );
+			$('#txt_wade').val( data.txt_wade );
+			$('#txt_ausdauer').val( data.txt_ausdauer );
+			$('#txt_kampfsport').val( data.txt_kampfsport );
+			$('#txt_gymnastik').val( data.txt_gymnastik );
+			$('#txt_squash').val( data.txt_squash );
+			
 			$('input[type=checkbox]').makeNiceCheckbox();
 			$('#traindata').show();
+			
+			$( '#training-auswahl input[type=checkbox]' ).each( function() {
+				if ( $(this).is(':checked') ) {
+					var textarea = $( this ).parent().parent().find( 'textarea' );
+					textarea.toggle();	
+					textarea.css( { height:0  } );
+					textarea.css( { height: textarea.get(0).scrollHeight - 7 } );
+				}				
+			});
+			
 		} else {
 			
 			if ( d ) {
@@ -375,6 +410,45 @@ var getTraining = function() {
 	$( '.mobile_content > h1' ).html( titel );
 };
 
+var saveTraining = function( cb ) {
+	overlay( true );
+	$.ajax({
+		data:{
+			type:'savetraining',
+			id: trainingID,
+			uid: sessionStorage.getItem( 'fitcomLogin_uid' ),
+			sid: sessionStorage.getItem( 'fitcomLogin_sid' ),			
+			"cb_brust":$('#cb_brust').prop('checked') ? 1 : 0,
+			"cb_schulter":$('#cb_schulter').prop('checked') ? 1 : 0,
+			"cb_ruecken":$('#cb_ruecken').prop('checked') ? 1 : 0,
+			"cb_bizeps":$('#cb_bizeps').prop('checked') ? 1 : 0,
+			"cb_trizeps":$('#cb_trizeps').prop('checked') ? 1 : 0,
+			"cb_bauch":$('#cb_bauch').prop('checked') ? 1 : 0,
+			"cb_oberschenkel":$('#cb_oberschenkel').prop('checked') ? 1 : 0,
+			"cb_wade":$('#cb_wade').prop('checked') ? 1 : 0,
+			"cb_ausdauer":$('#cb_ausdauer').prop('checked') ? 1 : 0,
+			"cb_kampfsport":$('#cb_kampfsport').prop('checked') ? 1 : 0,
+			"cb_gymnastik":$('#cb_gymnastik').prop('checked') ? 1 : 0,
+			"cb_squash":$('#cb_squash').prop('checked') ? 1 : 0,
+			"txt_brust":$('#txt_brust').val(),
+			"txt_schulter":$('#txt_schulter').val(),
+			"txt_ruecken":$('#txt_ruecken').val(),
+			"txt_bizeps":$('#txt_bizeps').val(),
+			"txt_trizeps":$('#txt_trizeps').val(),
+			"txt_bauch":$('#txt_bauch').val(),
+			"txt_oberschenkel":$('#txt_oberschenkel').val(),
+			"txt_wade":$('#txt_wade').val(),
+			"txt_ausdauer":$('#txt_ausdauer').val(),
+			"txt_kampfsport":$('#txt_kampfsport').val(),
+			"txt_gymnastik":$('#txt_gymnastik').val(),
+			"txt_squash":$('#txt_squash').val()
+		}
+	}).done( function() {	
+		overlay( false );	
+		if ( cb ) cb();
+	});	
+}
+
 var showError = function() {
 	overlay( false );	
 	setTimeout( function() { top.location.href="index.html?error3"; }, 200 );
@@ -384,6 +458,30 @@ $( document ).on( 'click', '#loginbutton', submitLogin );
 $( document ).on( 'submit', 'form', function(e) { e.preventDefault(); } );
 /*$( document ).on( 'focus', 'input', function() { $(this).prop('readonly',false); } );
 $( document ).on( 'blur', 'input', function() { $(this).prop('readonly',true); } );*/
+
+var changesnotsaved = false;
+
+$( document ).on( 'change', '#training-auswahl input[type=checkbox]', function(e) { 
+	$( this ).parent().parent().find( 'textarea' ).toggle();
+	changesnotsaved = true;
+});
+
+$( document ).on( 'click', '.inputwrapper canvas', function(e) { 
+	$( this ).parent().parent().find( 'textarea' ).toggle();
+	changesnotsaved = true;
+});
+
+
+$( document ).on( 'keyup change', 'textarea', function(e) { 
+	/*console.log(  $(this).val() );
+	var lines = $(this).val().split("\n").length;
+	$(this).css( { height: 1.32*lines+'em' } );*/
+	$(this).css( { height:0  } );
+	$(this).css( { height: $(this).get(0).scrollHeight - 7 } );
+	changesnotsaved = true;
+	
+});
+
 $( document ).on( 'change', '#selectYear', function(e) { 
 	e.preventDefault();
 	loadYearData( this.value );
@@ -429,35 +527,7 @@ $( document ).on( 'click', '.fitcom-verlassen', function() {
 });
 
 $( document ).on( 'click', '.training-speichern', function() {
-
-	overlay( true );
-	$.ajax({
-		data:{
-			type:'savetraining',
-			id: trainingID,
-			uid: sessionStorage.getItem( 'fitcomLogin_uid' ),
-			sid: sessionStorage.getItem( 'fitcomLogin_sid' ),			
-			"cb_brust":$('#cb_brust').prop('checked') ? 1 : 0,
-			"cb_schulter":$('#cb_schulter').prop('checked') ? 1 : 0,
-			"cb_ruecken":$('#cb_ruecken').prop('checked') ? 1 : 0,
-			"cb_bizeps":$('#cb_bizeps').prop('checked') ? 1 : 0,
-			"cb_trizeps":$('#cb_trizeps').prop('checked') ? 1 : 0,
-			"cb_bauch":$('#cb_bauch').prop('checked') ? 1 : 0,
-			"cb_oberschenkel":$('#cb_oberschenkel').prop('checked') ? 1 : 0,
-			"cb_wade":$('#cb_wade').prop('checked') ? 1 : 0,
-			"cb_ausdauer":$('#cb_ausdauer').prop('checked') ? 1 : 0,
-			"cb_kampfsport":$('#cb_kampfsport').prop('checked') ? 1 : 0,
-			"cb_gymnastik":$('#cb_gymnastik').prop('checked') ? 1 : 0,
-			"cb_squash":$('#cb_squash').prop('checked') ? 1 : 0
-		}
-	}).done( function(data) {	
-		if ( data !== '' ) { data = JSON.parse(data); }
-		if ( data.error ) { errorlogout(); return; }		
-		overlay( false );	
-	}).fail( function() {
-		showError();
-	});
-	
+	saveTraining();	
 });
 
 $( document ).on( 'click', '.passwort-speichern', function() {
@@ -486,6 +556,23 @@ $( document ).on( 'click', '.passwort-speichern', function() {
 	});
 	
 });
+
+
+$( document ).on( 'click', '.btn', function(e) {	
+	if ( $(this).hasClass( 'disabled' ) ) {
+		e.preventDefault();
+		return false;
+	}
+	if ( changesnotsaved ) {
+		e.preventDefault();
+		var href = $(this).attr('href')
+		saveTraining( function() {
+			top.location.href = href;	
+		});	
+	}
+});
+
+
 
 
 }(jQuery));

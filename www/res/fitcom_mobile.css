@@ -70,12 +70,12 @@ a.button { border: medium none; box-shadow: none; color: #ffffff; cursor: pointe
 section.mobile_content { width:310px; margin:20px auto 0 auto; padding-left:8px; }
 
 .button-area-userbereich { text-align:center; }
-.button-area-userbereich button { border: medium none; box-shadow: none; color: #ffffff; cursor: pointer; font-size: 1em; font-weight: bold; margin-bottom: 5px;
+.button-area-userbereich button, .download, .btn { border: medium none; box-shadow: none; color: #ffffff; cursor: pointer; font-size: 1em; font-weight: bold; margin-bottom: 5px;
     margin-top: 5px; padding: 15px; text-transform: uppercase; width:300px; }
 	
 button.stoptrain_delete	 { background:transparent; border:none; outline:none; color:#fff; }
 	
-button.training-speichern, button.passwort-speichern { background:#00b99e; }
+button.training-speichern, button.passwort-speichern, .download, .btn { background:#00b99e; }
 button.fitcom-verlassen { background:#c40230; }
 #welcome-text { font-size:20px; }
 #training-auswahl { padding:20px 10px; }
@@ -200,10 +200,11 @@ textarea.eingabekunde { height:150px; }
 #text_online { position: absolute; right:3px; bottom:3px; background:#185d45; color:#ffffff; padding:0 4px 0 6px;}
 
 form ul { list-style:none; padding:0; margin:0; }
-form li { width:45%; float:left; text-align:center; height:90px; margin-right:5%; }
+form li { /*width:45%; float:left;*/ text-align:left; /*height:120px; margin-right:5%;*/  }
+#training-auswahl textarea { background:transparent; border:1px solid #333; height:1.3em; width:95%; color:#fff; resize: none; margin:5px; font-family:Verdana; padding:5px; display:none; }
 form ul div.inputwrapper { margin:0;}
 form ul div.inputwrapper canvas { margin:0; }
-form ul label { display:inline-block; width:90%; }
+form ul label { display:inline-block; /*width:90%;*/ }
 
 #disclaimer { max-width:300px; margin:30px auto; font-size:0.8em;; opacity:0.7; }
 #disclaimer a { color: #00ae8d; }
@@ -221,3 +222,5 @@ form ul label { display:inline-block; width:90%; }
 	0% { background-position:0 0; }	
 	100% { background-position:-1680px 0; }
 }
+#trainnav .btn { width:120px; margin-right:5px; display:inline-block; text-align:center; }
+.disabled { opacity:0.2; }
