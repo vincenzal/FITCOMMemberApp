@@ -222,4 +222,4 @@ pip-log.txt
 # Cordova
 /platforms
 /plugins
-script.max.js
+#script.max.js
