@@ -120,7 +120,7 @@ var loadYearData = function( year ) {
 	}).done( function( data ) {	
 		if ( data !== '' ) { data = JSON.parse(data); }
 		if ( data.error ) { errorlogout(); return; }		
-		if ( data.days ) {
+		if ( typeof data.days != 'undefined' ) {
 			data = data.days;
 			createCalendar( year, data );
 		}
